@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('client_id')
-            ->refernces('id')->on('clients')
-                   
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
+            
+            $table->integer('client_id')->unsigned();
+        $table->foreign('client_id')->references('id')->on('clients')
+        ->onUpdate('cascade')
+        ->onDelete('cascade');;
             $table->string('token');
             $table->enum('type',["android","ios"]);
 

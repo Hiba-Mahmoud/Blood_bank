@@ -187,14 +187,14 @@ class AuthController extends Controller
             $code = rand(1111, 9999);
             $update = $client->update(['pin_code' => $code]);
             if ($update) {
-                // Mail::to($client->email)
-                //     ->send(new ResetPassword($code));
+                Mail::to($client->email)
+                    ->send(new ResetPassword($code));
 
-                Mail::send('emails.auth.reset', [$code], function($mail) use ($client){
-                    $mail->from('hello@example.com', "From for rent");
-                    $mail->to($client->email);
-                    $mail->subject('Reset password for your account');
-                });
+                // Mail::send('emails.auth.reset', [$code], function($mail) use ($client){
+                //     $mail->from('hello@example.com', "From for rent");
+                //     $mail->to($client->email);
+                //     $mail->subject('Reset password for your account');
+                // });
 
                 return $this->apiResponse(1, 'success', 'we send you a reset code pleaswe check you email');
             }
