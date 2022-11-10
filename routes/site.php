@@ -2,6 +2,7 @@
 
 use Doctrine\DBAL\Driver\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\Client\ClientController;
 
 
 
@@ -15,14 +16,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['namespace'=>'client'], function(){
-    Route::get('/',function(){
-        return view('site.home');
-    });
+Route::group(['prefix'=>'clients'], function(){
+    Route::get('/',[ClientController::class,'posts']);
+
     Route::get('contact');
     Route::get('setting');
-    Route::get('posts');
-    Route::get('post-details');
+    Route::get('posts',);
+    Route::get('post-details\{id}',[ClientController::class,'posts'])->name('post-details');
     Route::get('donation-requests');
     Route::get('donation-request-details');
     Route::get('login',);

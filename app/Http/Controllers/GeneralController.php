@@ -10,6 +10,7 @@ use App\Models\Setting;
 use App\Models\Category;
 use App\Models\BloodType;
 use App\Models\ClientPost;
+use App\Models\Contact;
 use App\Models\Governorate;
 use Illuminate\Http\Request;
 use App\Models\Donation_request;
@@ -90,8 +91,8 @@ public function categories()
 
 public function contactUs()
 {
-    $categories = Category::all();
-  return $this->apiResponse(1,'success',$categories);
+    $contact = Contact::all();
+  return $this->apiResponse(1,'success',$contact);
 }
 
 //posts
