@@ -27,9 +27,7 @@ use App\Http\Controllers\ClientNotificationController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 

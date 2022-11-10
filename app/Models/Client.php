@@ -10,7 +10,6 @@ class Client extends Model
     protected $table = 'clients';
     public $timestamps = true;
     protected $fillable = array('name', 'phone', 'email', 'password', 'date_of_birth', 'blood_type_id', 'last_donation_date', 'gender','city_id', 'pin_code','api_token');
-
     public function setPasswordAttribute($value){
         $this->attributes['password']=bcrypt($value);
 
